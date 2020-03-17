@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Banner from '../components/Home/banner';
 import Podcasts from '../components/Home/podcasts';
 
