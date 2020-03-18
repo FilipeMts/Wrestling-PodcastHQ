@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 //import xmlToJson from './data/data';
 
 import Home from './views/Home';
+import Footer from './components/Footer/footer';
 import { Container } from 'react-bootstrap';
 import './App.scss';
 
@@ -18,15 +19,12 @@ import './App.scss';
 
 
 
-function App() {
+const App = () => (
+  <Container fluid className="App" >
+    <Home />
+    <Footer />
+  </Container>
+);
 
-  
-
-  return (
-    <Container fluid className="App" >
-      <Home />
-    </Container>
-  );
-}
 
 export default App;

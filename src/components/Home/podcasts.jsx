@@ -33,10 +33,10 @@ export default function Podcasts() {
 
   return (
     <Row className='justify-content-center'>   
-      <CardDeck className='justify-content-center'>
+      <CardDeck className='justify-content-center' /* style={{width: '100%'}} */>
       {tempData && tempData.map(podcast => (
-        <Card key={podcast.title} className='mt-2 mb-2 podcastCard' style={{minWidth: '15em', maxWidth: '15em', border: 'none'}}>
-          <Link to='/'><Card.Img className='podcastLogo' variant='top' src={podcast.image.url} alt='podcast logo' style={{cursor: 'pointer'}}/></Link>
+        <Card key={podcast.title} className='mt-2 mb-2 podcastCard' style={{minWidth: '12em', maxWidth: '12em', border: 'none'}}>
+          <Link to={`/${podcast.title}`}><Card.Img className='podcastLogo' variant='top' src={podcast.image.url} alt='podcast logo' style={{cursor: 'pointer'}}/></Link>
           <Card.Body>
             <Card.Text>
               {formatStrLength(podcast.description)}
