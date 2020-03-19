@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Banner from '../components/Home/banner';
 import Podcasts from '../components/Home/podcasts';
-
-import './Home.scss';
+import '../App.scss';
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Banner />

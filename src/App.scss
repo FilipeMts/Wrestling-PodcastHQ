@@ -1,9 +1,101 @@
+$main-color: rgb(227,170,0);
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* .App {
-  height: 100vh;
-} */
+body {
+  max-width: 1480px;
+  margin: auto;
+  background-color: $main-color;
+
+  h1, h3, h4 {
+    font-family: 'Sen', sans-serif;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 1.25em;
+    margin-top: 1em;
+  }
+  
+  h4 {
+    font-size: 1em;
+  }
+  
+  p {
+    font-family: 'Baloo Chettan 2', cursive; 
+    font-size: .9;
+    text-align: justify;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+  
+    &:hover {
+      text-decoration: none;
+      color: $main-color;
+    }
+  }
+  
+  .homeContainer {
+    height: 100vh;
+  
+    .background {
+      height: 100%;
+      width: 100%;
+      background-image: url('./assets/images/headphones_background.jpg');  // Photo by Malte Wingen on Unsplash
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  
+    .intro {
+      position: absolute;
+      top: 25%;
+      margin-left: 3em;
+      opacity: 0.6;
+  
+      h3 {
+        font-size: 2.5em;
+      }
+  
+      p {
+        margin: 0;
+        text-align: center;
+        font-size: 1.2em;
+      }
+    }
+  }
+
+  .play {
+    margin-top: .25em;
+    text-align: center;
+    color: $main-color;
+  }
+  
+  .credits {
+    text-align: center;
+  }
+  
+  .podcast_background {
+    background: $main-color;
+    background: linear-gradient(90deg, rgba(227,170,0,1) 0%, rgba(239,180,0,1) 59%, rgba(254,205,49,0.8855917366946778) 100%);  
+  }  
+  
+  .footer {  
+    background: $main-color;
+    background: linear-gradient(90deg, rgba(227,170,0,1) 0%, rgba(239,180,0,1) 59%, rgba(254,205,49,0.8855917366946778) 100%);  
+  
+    p {
+      margin: auto;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+}

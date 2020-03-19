@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Modal, Button } from 'react-bootstrap';
-import './footer.scss';
+import '../../App.scss';
 
 export default function Footer() {
   const [show, setShow] = useState(false);
@@ -10,17 +10,17 @@ export default function Footer() {
 
   return (
     <Row className='footer'>
-      <p onClick={handleShow}>About</p>      
+      <p onClick={handleShow}>about</p>      
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>about</Modal.Title>
+        <Modal.Header /* closeButton */ className='bg-dark text-warning'>
+          <Modal.Title >about</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          This is a free web development personal project created by <a href='https://filipematos.dev'>Filipe Matos</a>.<br/>
-          If you enjoy these podcasts please visit and support <a href='https://www.westwoodone.com'>Westwood One</a>.<br/>
+        <Modal.Body className='bg-dark text-warning'>
+          This is a free web development personal project created by <a href='https://filipematos.dev' target='_blank' rel='noopener noreferrer'>Filipe Matos</a>.<br/>
+          If you enjoy these podcasts please visit and support <a href='https://www.westwoodone.com' target='_blank' rel='noopener noreferrer'>Westwood One</a>.<br/>
           All rights belong to their respective owners.
           </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className='bg-dark'>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
