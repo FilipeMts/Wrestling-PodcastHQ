@@ -42,10 +42,10 @@ const Podcasts = props => {
 
   return (
     <Row className='justify-content-center bg-dark '>   
-      <CardDeck className='justify-content-center bg-dark col-12 my-3' /* style={{width: '100%'}} */>
+      <CardDeck className='justify-content-center bg-dark my-3'>
       {tempData && tempData.map(podcast => (
         <Card key={podcast.title} className='mt-2 mb-2 podcastCard' style={{minWidth: '14em', maxWidth: '14em', border: 'none'}}>
-          <Link to={`/${podcast.title}`}><Card.Img className='home_podcast_logo' variant='top' src={podcast.image.url} alt='podcast logo'/></Link>
+          <Link to={`/podcast/${podcast.title}`}><Card.Img className='home_podcast_logo' variant='top' src={podcast.image.url} alt='podcast logo'/></Link>
           <Card.Body>
             <Card.Text>
               {formatStrLength(podcast.description)}

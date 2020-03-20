@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import Home from './views/Home';
 import Podcast from './views/Podcast';
+import ErrorPage from './views/ErrorPage';
 import Footer from './components/Footer/footer';
-import { Route, Switch, withRouter, Link } from 'react-router-dom';
+import { Route, Switch, /* withRouter,  */ Link, useLocation, useParams } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import './App.scss';
 
-const App = props => {
-
+const App = () => {
   const [menu, setMenu] = useState({
     homeBtn: true,
     topArrow: false,
-  });
-  
-  
-  useEffect(() => {
-    console.log('App - use effect');
+  });   
 
+  useEffect(() => {
     const showTopArrow = () => {
-      console.log('showTopArrow')
       if (window.pageYOffset > 50) {
         setMenu({
           ...menu,
@@ -26,40 +22,46 @@ const App = props => {
         })
       }
       else setMenu({...menu, topArrow: false})
-      console.log(menu.topArrow, window.pageYOffset)
     };  
 
     window.addEventListener('scroll', showTopArrow);
     return () => window.removeEventListener('scroll', showTopArrow);;
   }, [menu, menu.topArrow]);
 
-
   const goTopHandler = () => {
     window.scrollTo({top: 0, left: 0, behavior: "smooth"})
-  };
+  };  
 
-  
+  const location = useLocation();  
+
 
   return (
-  <Container fluid className="App" >
-    {menu.homeBtn && props.history.location.pathname !== '/' && <Link to='/'>
-      <div className='homeBtn-container'>
-        <i className="fas fa-home homeBtn"></i>
-     </div></Link>}
-    {menu.topArrow && <div className='arrow-container' onClick={goTopHandler}>
-      <i className="fas fa-chevron-circle-up arrow"></i>
-    </div>}
-    <main>
-      <Switch>
-        <Route path='/:name' render={() => <Podcast />}/>
-        <Route path="/" exact render={() => <Home />} />     
-      </Switch>    
-    </main>
-    <footer>
-      <Footer />
-    </footer>
-  </Container>
+    <Container fluid className="App">
+      {menu.homeBtn && location.pathname !== '/' && 
+        <Link to='/'>
+          <div className='homeBtn-container'>
+            <i className="fas fa-home homeBtn"></i>
+          </div>
+        </Link>}
+
+      {menu.topArrow && <div className='arrow-container' onClick={goTopHandler}>
+        <i className="fas fa-chevron-circle-up arrow"></i>
+      </div>}
+
+      <main>
+        <Switch>
+          <Route path='/podcast/:name' render={() => <Podcast />} />
+          <Route path='/error' component={ErrorPage} />
+          <Route path="/" exact render={() => <Home />} />     
+          <Route path="*" exact render={() => <ErrorPage />} /> 
+        </Switch>    
+      </main>
+
+      <footer>
+        <Footer />
+      </footer>
+    </Container>
   );
 };
 
-export default withRouter(App);
+export default App;

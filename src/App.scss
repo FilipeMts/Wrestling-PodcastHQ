@@ -21,7 +21,6 @@ body {
   
   h1 {
     font-size: 1.25em;
-    margin-top: 1em;
   }
   
   h4 {
@@ -48,7 +47,7 @@ body {
   .homeBtn-container {    
     position: fixed;
     right: 1.15em;
-    bottom: 1.75em;
+    top: 1.75em;
     cursor: pointer;  
     z-index: 500;
 
@@ -65,10 +64,9 @@ body {
   }
 
   .arrow-container {
-    color: red;
     position: fixed;
     right: 1.25em;
-    bottom: 5em;
+    bottom: 1.75em;
     cursor: pointer;  
     z-index: 500;
 
@@ -99,38 +97,31 @@ body {
     .intro {
       position: absolute;
       top: 25%;
-      margin-left: 3em;
-      opacity: 0.6;
+      opacity: 0.75;
   
       h3 {
         font-size: 2.5em;
       }
   
-      p {
-        margin: 0;
-        text-align: center;
+      p {        
         font-size: 1.2em;
       }
     }
   }
 
   .play {
-    margin-top: .25em;
-    text-align: center;
     color: $main-color;
   }
-  
-  .credits {
-    text-align: center;
-  }
-  
+
   .podcast_background {
-    background: $main-color;
     background: linear-gradient(90deg, rgba(227,170,0,1) 0%, rgba(239,180,0,1) 59%, rgba(254,205,49,0.8855917366946778) 100%);  
   }  
+
+  .podcast_logo {
+    cursor: pointer;
+  }
   
-  .footer {  
-    background: $main-color;
+  .footer {
     background: linear-gradient(90deg, rgba(227,170,0,1) 0%, rgba(239,180,0,1) 59%, rgba(254,205,49,0.8855917366946778) 100%);  
   
     p {
