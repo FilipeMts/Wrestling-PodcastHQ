@@ -8,10 +8,16 @@ $hover-color: #FF5959;
   box-sizing: border-box;
 }
 
+
 body {
   max-width: 1480px;
   margin: auto;
   background-color: $main-color;
+
+  main {
+    flex:1;
+    height: 100vh;
+  }
 
   h1, h3, h4 {
     font-family: 'Sen', sans-serif;

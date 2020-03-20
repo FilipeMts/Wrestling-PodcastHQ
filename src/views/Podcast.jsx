@@ -3,12 +3,10 @@ import { Row, Col, Card } from 'react-bootstrap';
 import { useLocation, useParams, Redirect } from 'react-router-dom';
 import '../App.scss';
 
-
 const Podcast = () => {
   
   const { name } = useParams()
   const podcastTitles = JSON.parse(localStorage.getItem('podcasts')).map(podcast => podcast.title);
-  console.log(name)
   
   const playerRef = useRef();
   const location = useLocation();
@@ -19,10 +17,8 @@ const Podcast = () => {
   const listenToPodcast = allPodcasts.filter(el => el.title === currentPage);
   
   useEffect(() => {
-    console.log('Podcast - use effect')
     window.scrollTo(0, 0);
   }, []);
-
   
   const formatUrl = url => {
     return url.replace('https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/chtbl.com/track/8G441/traffic', 'https://dcs');
@@ -65,7 +61,7 @@ const Podcast = () => {
             return <Card key={el.title} className='mt-2 mb-2 bg-dark text-white border-bottom border-warning podcastCard' style={{minWidth: '100%', maxWidth: '100%', border: 'none'}}>
                     <Row className='m-0'>
                       <div className='col-md-3 align-self-center podcast_logo'  onClick={() => playHandler(formatUrl(el.enclosure['@attributes'].url))} title='play'>
-                        <img className='mx-auto d-block' src={/* el['itunes:image'] ? el['itunes:image']['@attributes'].href : */ listenToPodcast[0].image.url} alt='logo' style={{width: '40%'}}  />                        
+                        <img className='mx-auto d-block' src={el['itunes:image'] ? el['itunes:image']['@attributes'].href : listenToPodcast[0].image.url} alt='logo' style={{width: '40%'}}  />                        
                         <p className='text-center mt-1 play'>play</p>
                       </div> 
                       <Card.Body className='col-md-9'>

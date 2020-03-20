@@ -3,7 +3,7 @@ import Home from './views/Home';
 import Podcast from './views/Podcast';
 import ErrorPage from './views/ErrorPage';
 import Footer from './components/Footer/footer';
-import { Route, Switch, /* withRouter,  */ Link, useLocation, useParams } from 'react-router-dom';
+import { Route, Switch, Link, useLocation } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import './App.scss';
 
@@ -11,8 +11,8 @@ const App = () => {
   const [menu, setMenu] = useState({
     homeBtn: true,
     topArrow: false,
-  });   
-
+  }); 
+  
   useEffect(() => {
     const showTopArrow = () => {
       if (window.pageYOffset > 50) {
@@ -25,7 +25,7 @@ const App = () => {
     };  
 
     window.addEventListener('scroll', showTopArrow);
-    return () => window.removeEventListener('scroll', showTopArrow);;
+    return () => window.removeEventListener('scroll', showTopArrow);    
   }, [menu, menu.topArrow]);
 
   const goTopHandler = () => {
@@ -36,7 +36,7 @@ const App = () => {
 
 
   return (
-    <Container fluid className="App">
+    <Container fluid className="App d-flex flex-column min-vh-100">
       {menu.homeBtn && location.pathname !== '/' && 
         <Link to='/'>
           <div className='homeBtn-container'>
@@ -48,7 +48,7 @@ const App = () => {
         <i className="fas fa-chevron-circle-up arrow"></i>
       </div>}
 
-      <main>
+      <main className='h-100'>
         <Switch>
           <Route path='/podcast/:name' render={() => <Podcast />} />
           <Route path='/error' component={ErrorPage} />

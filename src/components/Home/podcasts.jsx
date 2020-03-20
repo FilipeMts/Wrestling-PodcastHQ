@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Card, CardDeck } from 'react-bootstrap';
+import ScrollAnimation from 'react-animate-on-scroll';
 import { /* xmlToJson, */ myData } from '../../data/data';
 
 import '../../App.scss';
@@ -15,12 +16,12 @@ const tempData = myData;
   'https://feeds.megaphone.fm/WWO2089228444'
 ]; */
 
-const Podcasts = props => {
+const Podcasts = () => {
 
   let podcastData = [];
 
   useEffect(() => {
-    console.log('use effect');
+    //console.log('use effect');
     localStorage.setItem('podcasts', JSON.stringify(tempData))
     /* const promises = urls.map(url => fetch(url).then(response => response.text()));
     Promise.all(promises).then(results => {
@@ -41,19 +42,21 @@ const Podcasts = props => {
   };
 
   return (
-    <Row className='justify-content-center bg-dark '>   
-      <CardDeck className='justify-content-center bg-dark my-3'>
-      {tempData && tempData.map(podcast => (
-        <Card key={podcast.title} className='mt-2 mb-2 podcastCard' style={{minWidth: '14em', maxWidth: '14em', border: 'none'}}>
-          <Link to={`/podcast/${podcast.title}`}><Card.Img className='home_podcast_logo' variant='top' src={podcast.image.url} alt='podcast logo'/></Link>
-          <Card.Body>
-            <Card.Text>
-              {formatStrLength(podcast.description)}
-            </Card.Text>            
-          </Card.Body>
-        </Card>
-      ))}
-      </CardDeck>   
+    <Row className='justify-content-center bg-dark'>        
+        <CardDeck className='justify-content-center bg-dark my-3'>
+        {tempData && tempData.map((podcast, index) => (          
+          <ScrollAnimation key={podcast.title} animateIn="slideInUp" delay={`${index}` * 250} animateOnMount='false'>
+          <Card className='mt-2 mb-2 podcastCard' style={{minWidth: '14em', maxWidth: '14em', border: 'none'}}>
+            <Link to={`/podcast/${podcast.title}`}><Card.Img className='home_podcast_logo' variant='top' src={podcast.image.url} alt='podcast logo'/></Link>
+            <Card.Body>
+              <Card.Text>
+                {formatStrLength(podcast.description)}
+              </Card.Text>            
+            </Card.Body>
+          </Card>
+          </ScrollAnimation> 
+        ))}
+        </CardDeck>         
     </Row>
   );
 };
