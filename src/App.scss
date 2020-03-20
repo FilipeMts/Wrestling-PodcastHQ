@@ -1,4 +1,6 @@
 $main-color: rgb(227,170,0);
+$btn-color: #6699CC;
+$hover-color: #FF5959;
 
 * {
   margin: 0;
@@ -40,6 +42,45 @@ body {
     &:hover {
       text-decoration: none;
       color: $main-color;
+    }
+  }
+
+  .homeBtn-container {    
+    position: fixed;
+    right: 1.15em;
+    bottom: 1.75em;
+    cursor: pointer;  
+    z-index: 500;
+
+    .homeBtn {
+      font-size: 1.8em;
+      color: $btn-color;
+
+      &:hover {
+        color: $hover-color;  
+        opacity: 0.5;
+        transform: scale(1.2);            
+      }
+    }
+  }
+
+  .arrow-container {
+    color: red;
+    position: fixed;
+    right: 1.25em;
+    bottom: 5em;
+    cursor: pointer;  
+    z-index: 500;
+
+    .arrow {
+      font-size: 1.8em;
+      color: $btn-color;
+
+      &:hover {
+        color: $hover-color;  
+        opacity: 0.5;
+        transform: scale(1.2);            
+      }
     }
   }
   

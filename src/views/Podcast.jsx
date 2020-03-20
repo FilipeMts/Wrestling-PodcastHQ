@@ -57,7 +57,7 @@ const Podcast = props => {
             return <Card key={el.title} className='mt-2 mb-2 bg-dark text-white border-bottom border-warning podcastCard' style={{minWidth: '100%', maxWidth: '100%', border: 'none'}}>
                     <Row className='m-0'>
                       <div className='col-md-3 align-self-center podcast_logo'  onClick={() => playHandler(formatUrl(el.enclosure['@attributes'].url))} style={{cursor: 'pointer'}} title='play'>
-                        <img className='mx-auto d-block' src={el['itunes:image'] ? el['itunes:image']['@attributes'].href : listenToPodcast[0].image.url} alt='logo' style={{width: '40%'}}  />                        
+                        <img className='mx-auto d-block' src={/* el['itunes:image'] ? el['itunes:image']['@attributes'].href : */ listenToPodcast[0].image.url} alt='logo' style={{width: '40%'}}  />                        
                         <p className='play'>play</p>
                       </div> 
                       <Card.Body className='col-md-9'>
