@@ -12,7 +12,7 @@ export default function Footer() {
     <Row className='footer'>
       <p onClick={handleShow}>about</p>      
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header /* closeButton */ className='bg-dark text-warning'>
+        <Modal.Header className='bg-dark text-warning'>
           <Modal.Title>about</Modal.Title>
         </Modal.Header>
         <Modal.Body className='bg-dark text-warning text-justify'>

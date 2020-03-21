@@ -3,7 +3,7 @@ import Banner from '../components/Home/banner';
 import Podcasts from '../components/Home/podcasts';
 import '../App.scss';
 
-function Home() {
+const Home = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

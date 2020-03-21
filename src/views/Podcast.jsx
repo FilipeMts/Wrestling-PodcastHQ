@@ -3,8 +3,7 @@ import { Row, Col, Card } from 'react-bootstrap';
 import { useLocation, useParams, Redirect } from 'react-router-dom';
 import '../App.scss';
 
-const Podcast = () => {
-  
+const Podcast = () => {  
   const { name } = useParams();
   const podcastTitles = JSON.parse(localStorage.getItem('podcasts')).map(podcast => podcast.title);
   

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Card, CardDeck } from 'react-bootstrap';
 import ScrollAnimation from 'react-animate-on-scroll';

@@ -1,3 +1,11 @@
+export const urls = [
+  'https://feeds.megaphone.fm/83-weeks', 
+  'https://feeds.megaphone.fm/arn', 
+  'https://feeds.megaphone.fm/grilling-jr', 
+  'https://feeds.megaphone.fm/something-to-wrestle-with-bruce-prichard', 
+  'https://feeds.megaphone.fm/WWO2089228444'
+];
+
 export function xmlToJson(xml) {
   let obj = {};
 
@@ -38,11 +46,3 @@ export function xmlToJson(xml) {
   }
   return obj;
 };
-
-export const urls = [
-  'https://feeds.megaphone.fm/83-weeks', 
-  'https://feeds.megaphone.fm/arn', 
-  'https://feeds.megaphone.fm/grilling-jr', 
-  'https://feeds.megaphone.fm/something-to-wrestle-with-bruce-prichard', 
-  'https://feeds.megaphone.fm/WWO2089228444'
-];

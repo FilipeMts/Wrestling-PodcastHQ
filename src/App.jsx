@@ -3,7 +3,7 @@ import Home from './views/Home';
 import Podcast from './views/Podcast';
 import ErrorPage from './views/ErrorPage';
 import Footer from './components/Footer/footer';
-import { xmlToJson, urls } from './data/data';
+import { xmlToJson, urls } from './assets/utils/utils';
 import { Route, Switch, Link, useLocation } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import './App.scss';
@@ -47,8 +47,6 @@ const App = () => {
   const goTopHandler = () => {
     window.scrollTo({top: 0, left: 0, behavior: "smooth"})
   };  
-
-  
 
   return (
     <Container fluid className="App d-flex flex-column min-vh-100">
