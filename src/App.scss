@@ -8,11 +8,10 @@ $hover-color: #FF5959;
   box-sizing: border-box;
 }
 
-
 body {
   max-width: 1480px;
   margin: auto;
-  background-color: $main-color;
+  background: linear-gradient(90deg, rgba(227,170,0,1) 0%, rgba(239,180,0,1) 59%, rgba(254,205,49,0.8855917366946778) 100%);  
 
   main {
     flex:1;
@@ -125,6 +124,22 @@ body {
 
   .podcast_logo {
     cursor: pointer;
+  }
+
+  .podcastCard {
+    min-width: 14em;
+    max-width: 14em;
+    border: none;
+  }
+
+  .episode_logo {
+    max-width: 70%;
+  }
+
+  .episodeCard {
+    min-width: 100%;
+    max-width: 100%;
+    border: none;
   }
   
   .footer {

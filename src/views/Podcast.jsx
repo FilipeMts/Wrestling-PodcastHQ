@@ -5,7 +5,7 @@ import '../App.scss';
 
 const Podcast = () => {
   
-  const { name } = useParams()
+  const { name } = useParams();
   const podcastTitles = JSON.parse(localStorage.getItem('podcasts')).map(podcast => podcast.title);
   
   const playerRef = useRef();
@@ -28,7 +28,7 @@ const Podcast = () => {
     return str.replace(/(\r\n|\n|\r)/gm," ").replace(/^(.{400}[^\s]*).*/, "$1...");     
   };
 
-  const playHandler = (url) => {
+  const playHandler = url => {
     setAudio(url);
     window.scrollTo({top: playerRef.current.offsetTop, behavior: 'smooth'});
   };
@@ -58,22 +58,24 @@ const Podcast = () => {
       
         <Row className='bg-dark justify-content-center'>
           {listenToPodcast[0].item.slice(0, 5).map(el => {
-            return <Card key={el.title} className='mt-2 mb-2 bg-dark text-white border-bottom border-warning podcastCard' style={{minWidth: '100%', maxWidth: '100%', border: 'none'}}>
-                    <Row className='m-0'>
+            return <Card key={el.title} className='bg-dark text-white border-bottom border-warning episodeCard'>
+                    <Row className='m-0 '>
                       <div className='col-md-3 align-self-center podcast_logo'  onClick={() => playHandler(formatUrl(el.enclosure['@attributes'].url))} title='play'>
-                        <img className='mx-auto d-block' src={el['itunes:image'] ? el['itunes:image']['@attributes'].href : listenToPodcast[0].image.url} alt='logo' style={{width: '40%'}}  />                        
-                        <p className='text-center mt-1 play'>play</p>
+                        <img className='mx-auto d-block img-fluid mt-1 episode_logo' src={el['itunes:image'] ? el['itunes:image']['@attributes'].href : listenToPodcast[0].image.url} alt='logo' />                        
+                        <p className='text-center mb-1 play'>play</p>
                       </div> 
-                      <Card.Body className='col-md-9'>
-                        <h4>{el.title}</h4>
-                        <Card.Text className='p-1'>
-                          {formatStrLength(el['itunes:summary'])}
-                        </Card.Text>            
+                      <Card.Body className='col-md-9 d-flex align-items-center'>
+                        <div>
+                          <h4>{el.title}</h4>
+                          <Card.Text className='p-1'>
+                            {formatStrLength(el['itunes:summary'])}
+                          </Card.Text>  
+                        </div>          
                       </Card.Body>  
                       </Row>  
                     </Card>}
           )}
-          <p className='text-white'>Listen to all episodes and podcasts at <a href='https://www.westwoodone.com' target='_blank' rel='noopener noreferrer'>Westwood One</a></p>
+          <p className='text-white'>Get all episodes at <a href='https://www.westwoodone.com' target='_blank' rel='noopener noreferrer'>Westwood One</a></p>
         </Row> 
         </>
        : <Redirect to='/error' />  
