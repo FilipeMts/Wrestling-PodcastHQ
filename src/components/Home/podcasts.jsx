@@ -14,7 +14,7 @@ const Podcasts = () => {
   return (
     podcastData ?
     <Row className='justify-content-center bg-dark'>        
-        <CardDeck className='justify-content-center bg-dark my-3'>
+        <CardDeck className='justify-content-center bg-dark my-3 d-flex'>
         {podcastData.map((podcast, index) => (          
           <ScrollAnimation key={podcast.title} animateIn="slideInUp" delay={`${index}` * 250} animateOnMount='false'>
           <Card className='mt-2 mb-2 podcastCard'>
